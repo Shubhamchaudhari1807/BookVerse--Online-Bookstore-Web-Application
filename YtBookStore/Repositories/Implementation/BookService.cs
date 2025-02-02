@@ -67,6 +67,27 @@ namespace YtBookStore.Repositories.Implementation
                             PublisherName = publisher.PublisherName
                         }
                         ).ToList();
+
+            // You can also achieve the same with this LINQ syntax. Which is shorter and human readable. But make sure match your Genre,Publisher,Author and Book models with mine before doing so.
+            // 
+            //var data = context.Book
+            //                 .Include(book => book.Publisher)
+            //                 .Include(book => book.Author)
+            //                 .Include(book => book.Genre)
+            //                 .Select(book => new Book
+            //                 {
+            //                     Id = book.Id,
+            //                     AuthorId = book.AuthorId,
+            //                     GenreId = book.GenreId,
+            //                     Isbn = book.Isbn,
+            //                     PubhlisherId = book.PubhlisherId,
+            //                     Title = book.Title,
+            //                     TotalPages = book.TotalPages,
+            //                     GenreName = book.Genre.Name,
+            //                     AuthorName = book.Author.AuthorName,
+            //                     PublisherName = book.Publisher.PublisherName
+            //                 });
+
             return data;
         }
 
